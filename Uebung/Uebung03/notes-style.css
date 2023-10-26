@@ -1,0 +1,21 @@
+root {
+    --boxSize: 200px
+}
+
+div.note {
+    background-color: bisque;
+    width: var(--boxSize);
+    aspect-ratio: 1;
+    margin: calc(var(--boxSize) / 10) auto;
+    box-shadow: black;
+    position: relative;
+    text-align: justify;
+    padding: 5%;
+}
+
+span.author {
+    text-align: right;
+    position: absolute;
+    right: 5%;
+    bottom: 10px;
+}

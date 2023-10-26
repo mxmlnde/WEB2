@@ -1,0 +1,22 @@
+.container {
+    background-image: linear-gradient(orange, purple);
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    background-color: black;
+    width: auto;
+    color: white;
+    text-align: center;
+    padding: 5%;
+}
+
+.content {
+    text-align: justify;
+    padding: 10%;
+}
+
+body {
+    margin: 0;
+}
