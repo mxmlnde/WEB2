@@ -11,11 +11,13 @@
         }
 
         .side-box {
+            height: 50%;
             position: fixed;
-            margin-top: 30%;
+            margin-top: 20%;
             background-color: grey;
             border: solid black 5px;
             padding: 10px;
+            color: beige;
         }
 
         .content {
@@ -25,12 +27,23 @@
         }
 
         .up-button {
+            height: 20px;
+            width: 20px;
             position: fixed;
             bottom: 10px;
             right: 10px;
             background-color: grey;
             width: 20px;
             aspect-ratio: 1;
+            border: solid black 2px;
+            color: black;
+        }
+
+        .up-button:hover{
+            background-color: deeppink;
+        }
+        .up-button:active{
+            color: black;
         }
 
     </style>
@@ -50,7 +63,7 @@
     </div>
     <div class="content">
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium at beatae consectetur, cupiditate
+            <span id="top">Lorem</span> ipsum dolor sit amet, consectetur adipisicing elit. Accusantium at beatae consectetur, cupiditate
             distinctio eaque esse laborum magnam nulla perferendis quae quis rem repellat reprehenderit sed? Ab ad
             blanditiis consequatur cumque dicta doloremque doloribus dolorum ducimus est facilis fuga hic impedit, iusto
             laboriosam libero magni minus natus, necessitatibus neque nesciunt numquam porro possimus provident quaerat
@@ -74,7 +87,7 @@
             itaque, quae quia similique tempore. Beatae et libero obcaecati suscipit?
         </p>
     </div>
-    <button class="up-button" ><span style="text-align: center">UP</span></button>
+    <a class="up-button" href="#top">UP</a>
 </div>
 </body>
 </html>
