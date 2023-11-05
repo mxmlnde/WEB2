@@ -1,0 +1,66 @@
+.button-1 {
+  background-color: #3b87c8;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.button-1:hover {
+  background-color: #2d6da3;
+}
+
+.button-2 {
+  background-color: #4f93ce;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.button-2:hover {
+  background-color: #337ab7;
+}
+
+.button-3 {
+  background-color: #63a0d4;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.button-3:hover {
+  background-color: #3b87c8;
+}
+
+.button-4 {
+  background-color: #77acd9;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.button-4:hover {
+  background-color: #4f93ce;
+}
+
+.button-5 {
+  background-color: #8bb8df;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.button-5:hover {
+  background-color: #63a0d4;
+}
+
+/*# sourceMappingURL=style-test.css.map */

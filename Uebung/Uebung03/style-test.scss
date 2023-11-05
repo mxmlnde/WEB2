@@ -1,0 +1,22 @@
+$base-color: #337ab7; // Define a base color
+
+@function lighten-color($color, $percentage) {
+  @return lighten($color, $percentage);
+}
+
+// Loop to generate .button-1, .button-2, ... with lighter shades
+@for $i from 1 through 5 {
+  .button-#{$i} {
+    background-color: lighten-color($base-color, $i * 5%);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(lighten-color($base-color, $i * 5%), 10%);
+    }
+  }
+}
