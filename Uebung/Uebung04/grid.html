@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: grid;
+            height: 100dvh;
+            gap: 0.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-areas:
+                "header header header"
+                "col1 col2 col3"
+                "col1 col2 col3"
+                "col1 col2 col3"
+                "footer footer footer";
+        }
+
+        .container > * {
+            display: grid;
+            place-items: center;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: blue;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: yellow;
+        }
+
+        .col1 {
+            grid-area: col1;
+            background-color: red;
+        }
+
+        .col2 {
+            grid-area: col2;
+            background-color: green;
+        }
+
+        .col3 {
+            grid-area: col3;
+            background-color: violet;
+        }
+
+        button {
+            background-color: navajowhite;
+            border: none;
+            box-shadow: 2px 2px 2px black;
+        }
+
+        button:hover {
+            box-shadow: 1px 1px 0.5px black;
+            background-color: grey;
+            text-decoration: underline;
+            border: solid black 1pt;
+            transition: text-decoration 0.5s ease-in-out;
+        }
+
+        button:active {
+            box-shadow: 0px 0px 1px black;
+            position: relative;
+            top: 1px;
+            left: 1px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Header</div>
+    <div class="col1">Splate 1</div>
+    <div class="col2">
+        <button class="reset-btn">Reset</button>
+
+    </div>
+    <div class="col3">Splate 3</div>
+    <div class="footer">Footer</div>
+</div>
+
+</body>
+</html>
