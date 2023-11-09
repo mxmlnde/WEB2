@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: grid;
+            height: 100dvh;
+            gap: 0.5rem;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(12, 1fr);
+            grid-template-areas:
+                "header header header header header header"
+                "navbar content content content content news"
+                "navbar content content content content news"
+                "navbar content content content content news"
+                "navbar content content content content news"
+                "navbar content content content content side"
+                "navbar content content content content side"
+                "navbar content content content content side"
+                "navbar content content content content side"
+                "contact1 contact1 contact1 contact2 contact2 contact2"
+                "contact1 contact1 contact1 contact2 contact2 contact2"
+                "footer footer footer footer footer footer";
+        }
+
+        .container > * {
+            display: grid;
+            place-items: center;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #057c6d;
+        }
+
+        .navbar {
+            grid-area: navbar;
+            background-color: #f83c3c;
+        }
+
+        .content {
+            grid-area: content;
+            background-color: rgb(185, 215, 229);
+        }
+
+        .news {
+            grid-area: news;
+            background-color: #ffa645;
+        }
+
+        .side {
+            grid-area: side;
+            background-color: #ffa645;
+        }
+
+
+        .contact1 {
+            grid-area: contact1;
+            background-color: #00ecff;
+        }
+
+        .contact2 {
+            grid-area: contact2;
+            background-color: #00ecff;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #8fff62;
+        }
+
+        @media screen and (max-width: 480px) {
+            .container {
+                display: grid;
+                height: 100dvh;
+                gap: 0.5rem;
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(12, 1fr);
+                grid-template-areas:
+                "header"
+                "navbar"
+                "content"
+                "content"
+                "content"
+                "content"
+                "content"
+                "news"
+                "side"
+                "contact1"
+                "contact2"
+                "footer";
+            }
+        }
+
+
+        @media screen and (max-width: 768px) and (min-width: 481px) {
+            .container {
+                display: grid;
+                height: 100dvh;
+                gap: 0.5rem;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(12, 1fr);
+                grid-template-areas:
+                "header header header header"
+                "navbar content content content"
+                "navbar content content content"
+                "navbar content content content"
+                "navbar content content content"
+                "navbar content content content"
+                "navbar content content content"
+                "navbar content content content"
+                "navbar content content content"
+                "news news news news"
+                "contact1 contact1 contact1 contact1"
+                "footer footer footer footer";
+            }
+
+            .contact2 {
+                display: none;
+            }
+
+            .side {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Header</div>
+    <div class="navbar">Navigation</div>
+    <div class="content">Main Content</div>
+    <div class="news">News</div>
+    <div class="side">Sidebar</div>
+    <div class="contact1">Contact1</div>
+    <div class="contact2">Contact2</div>
+    <div class="footer">Footer</div>
+</div>
+</body>
+</html>

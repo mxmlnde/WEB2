@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Logo</title>
+    <style>
+        .bg {
+            position: relative;
+            display: grid;
+            height: 200px;
+            aspect-ratio: 1;
+            background-color: wheat;
+            border-radius: 50%;
+            place-items: center;
+            opacity: 1;
+            transition: opacity 0.3s linear;
+        }
+
+        .bg:hover .circle-red,
+        .bg:hover .circle-green,
+        .bg:hover .circle-blue,
+        .bg:hover .web-text {
+            animation-play-state: running;
+        }
+
+        .circle {
+            height: 50px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 2px solid white;
+            position: fixed;
+            animation-duration: 0.3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+        }
+
+        .circle-red {
+            background-color: red;
+            top: 75px;
+            left: 60px;
+            animation-name: red-sequence;
+            animation-play-state: paused;
+        }
+
+        .circle-green {
+            background-color: green;
+            top: 75px;
+            left: 100px;
+            animation-name: green-sequence;
+            animation-play-state: paused;
+        }
+
+        .circle-blue {
+            background-color: blue;
+            top: 105px;
+            left: 80px;
+            animation-name: blue-sequence;
+            animation-play-state: paused;
+        }
+
+        .web-text {
+            position: fixed;
+            top: 75px;
+            left: 60px;
+            color: white;
+            text-shadow: black 2px 2px 2px;
+            font-size: x-large;
+            font-weight: bold;
+            animation-name: web-sequence;
+            animation-duration: 0.3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+            animation-play-state: paused;
+            text-align: center;
+            margin-top: 15px;
+            margin-left: 15px
+        }
+
+        @keyframes red-sequence {
+            0% {
+                top: 100dvh;
+                left: 0;
+                transform: scale(2);
+                opacity: 0;
+                background-color: gold;
+            }
+            100% {
+            }
+        }
+
+        @keyframes green-sequence {
+            0% {
+                top: 100dvh;
+                left: 100dvh;
+                background-color: #ef00ff;
+                transform: skewX(40deg);
+                opacity: 0;
+            }
+            100% {
+            }
+        }
+
+        @keyframes blue-sequence {
+            0% {
+                top: 0dvh;
+                left: 100dvh;
+                border: dotted 10px black;
+                transform: skewX(40deg);
+                opacity: 0;
+            }
+            100% {
+            }
+        }
+
+        @keyframes web-sequence {
+            0% {
+                transform: rotateZ(45deg);
+                opacity: 0;
+            }
+            75% {
+                opacity: 0.2;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <span>Hover me</span>
+    <div class="circle circle-red"></div>
+    <div class="circle circle-green"></div>
+    <div class="circle circle-blue"></div>
+    <span class="web-text">
+        WEB <br>
+        23
+    </span>
+
+</div>
+</body>
+</html>

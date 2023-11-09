@@ -1,0 +1,11 @@
+$myColor: black;
+
+.container {
+
+}
+
+@mixin quad($size) {
+  width: $size;
+  height: $size;
+  // div.tile$*64
+}
