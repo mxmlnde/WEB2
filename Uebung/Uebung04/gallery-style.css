@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.gallery-container {
+    display: grid;
+    height: 80dvh;
+    width: auto;
+    gap: 1rem;
+    grid-template-columns: repeat(3, min-content);
+    grid-template-rows: auto;
+    background-color: darkgray;
+    box-shadow: #757575 5px 5px 5px;
+    padding: 10px;
+    padding-top: 50px;
+    overflow: auto;
+}
+
+.gallery-container > * {
+    display: grid;
+    place-items: center;
+}
+
+.gallery-item {
+    width: 320px;
+    height: 180px;
+    border-radius: 10px;
+    background-color: #00ecff;
+    transition: all 0.2s linear;
+}
+
+.gallery-item:hover {
+    transform: scale(1.1);
+    box-shadow: grey 3px 3px;
+}
