@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uebungsaufgabe1</title>
+    <script>
+      function delElement(element) {
+        let list = document.getElementById("ul");
+        list.removeChild(element);
+      }
+
+      function addElement() {
+        let text = document.getElementById("input").value;
+        let list = document.getElementById("ul");
+        let item = document.createElement("li");
+        item.innerHTML = text;
+        const delete_button = document.createElement("button");
+        delete_button.innerHTML = "X";
+        delete_button.addEventListener("click", (e) => {
+          delElement(item);
+        });
+        item.appendChild(delete_button);
+        list.appendChild(item);
+        document.getElementById("input").value = "";
+      }
+
+      function newBox(){
+        let box = document.getElementById("box");
+        let new_box = box.cloneNode(true);
+        let boxes = document.getElementById("boxes");
+        new_box.classList.remove("hidden");
+        if (Math.floor(Math.random() * 1.999) == 0){
+          new_box.classList.remove("border");
+        }
+        boxes.appendChild(new_box);
+      }
+    </script>
+  <style>
+    .box{
+      border-radius: 20px;
+      background-color: lightblue;
+      height: 100px;
+      aspect-ratio: 1;
+      margin: 10px;
+    }
+
+    .border {
+      border: solid grey 5px;
+    }
+
+    .boxes {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<input id="input">
+<button onclick="addElement()">Add</button>
+<h1>Liste</h1>
+<ul id="ul">
+</ul>
+<br>
+<br>
+<br>
+<br>
+<button onclick="newBox()">Neue Box</button>
+<div id="boxes" class="boxes">
+  <div class="box hidden border" id="box"></div>
+</div>
+<!--display hidden or opacity = 0-->
+</body>
+</html>

@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 50%;
+    margin: 15px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.box {
+    aspect-ratio: 1;
+    background-color: orange;
+    border-radius: 5%;
+    box-shadow: grey 2px 2px 2px;
+    border: none;
+    transition: all ease-in-out 0.4s;
+}
+
+.controls {
+    margin-top: 10px;
+}
+
+.box-border {
+    border: solid black 2px;
+    transition: all ease-in-out 0.4s;
+}
