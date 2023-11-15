@@ -25,6 +25,11 @@ body {
     margin-top: 10px;
 }
 
+.controlBtn {
+    position: relative;
+
+}
+
 .box-border {
     border: solid black 2px;
     transition: all ease-in-out 0.4s;
