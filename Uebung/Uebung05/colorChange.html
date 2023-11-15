@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Change</title>
+    <link rel="stylesheet" href="colorChange_style.css">
+</head>
+<body>
+<div class="container">
+    <div class="box" id="colorBox">
+    </div>
+    <div class="controls">
+        <button onclick="change_color()">Change Color</button>
+        <button onclick="toggleBorder()">Toggle Border</button>
+    </div>
+</div>
+<script>
+    let border = false
+
+    function change_color() {
+        let boxEle = document.getElementById("colorBox")
+        boxEle.style.backgroundColor = `rgb(${parseFloat(Math.floor(Math.random() * 255))}, ${parseFloat(Math.floor(Math.random() * 255))}, ${parseFloat(Math.floor(Math.random() * 255))}`;
+    }
+
+    function toggleBorder() {
+        let boxEle = document.getElementById("colorBox");
+        if (border) {
+            boxEle.classList.remove("box-border")
+            border = false;
+        } else {
+            boxEle.classList.add("box-border")
+            border = true;
+        }
+    }
+</script>
+</body>
+</html>

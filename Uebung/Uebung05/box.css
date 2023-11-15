@@ -1,0 +1,18 @@
+.box {
+    width: 50px;
+    aspect-ratio: 1;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+.box-border {
+    border: solid black 2px;
+}
+
+.box-hidden {
+    display: none
+}
+
+body{
+    flex:;
+}

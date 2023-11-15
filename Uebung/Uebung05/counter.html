@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter</title>
+    <link rel="stylesheet" href="counter_style.css">
+</head>
+<body>
+<div class="container">
+    <button id="downBtn" onclick="countDown()">Down</button>
+    <span id="counter">0</span>
+    <button id="upBtn" onclick="countUp()">Up</button>
+</div>
+<div class="container">
+    <div>
+        <button id="startBtn" onclick="startCounter()">Start</button>
+        <button id="stopBtn" onclick="stopCounter()">Stop</button>
+        <br>
+        <span>Speed (ms)</span><br>
+        <input type="number" id="delayValue"><br>
+        <button id="btnReset" onclick="resetBtn()">Reset</button>
+    </div>
+</div>
+
+<script>
+    let counter = 0;
+    let intervalID = -1;
+
+    function countUp() {
+        counter++;
+        document.getElementById("counter").innerText = counter;
+    }
+
+    function countDown() {
+        counter--;
+        document.getElementById("counter").innerText = counter;
+    }
+
+    function resetBtn() {
+        counter = 0;
+        document.getElementById("counter").innerText = counter;
+        clearInterval(intervalID);
+    }
+
+    function startCounter() {
+        let delay = parseInt(document.getElementById("delayValue").value);
+        intervalID = setInterval(function () {
+            counter++;
+            document.getElementById("counter").innerText = counter;
+        }, delay);
+        console.log(delay)
+    }
+
+    function stopCounter() {
+        clearInterval(intervalID);
+    }
+</script>
+<script src="counter_script.js"></script>
+</body>
+</html>
