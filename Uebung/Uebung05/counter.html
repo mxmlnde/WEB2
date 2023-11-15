@@ -16,7 +16,7 @@
         <button id="startBtn" onclick="startCounter()">Start</button>
         <button id="stopBtn" onclick="stopCounter()">Stop</button>
         <br>
-        <span>Speed (ms)</span><br>
+        <span id="timeLabel">Speed (ms)</span><br>
         <input type="number" id="delayValue"><br>
         <button id="btnReset" onclick="resetBtn()">Reset</button>
     </div>
@@ -55,6 +55,5 @@
         clearInterval(intervalID);
     }
 </script>
-<script src="counter_script.js"></script>
 </body>
 </html>
