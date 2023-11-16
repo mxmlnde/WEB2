@@ -24,7 +24,7 @@
 
 <script>
     let counter = 0;
-    let intervalID = -1;
+    let intervalID = [];
 
     function countUp() {
         counter++;
@@ -37,22 +37,24 @@
     }
 
     function resetBtn() {
+        stopCounter()
         counter = 0;
         document.getElementById("counter").innerText = counter;
-        clearInterval(intervalID);
     }
 
     function startCounter() {
         let delay = parseInt(document.getElementById("delayValue").value);
-        intervalID = setInterval(function () {
+        intervalID.push(setInterval(function () {
             counter++;
             document.getElementById("counter").innerText = counter;
-        }, delay);
+        }, delay));
         console.log(delay)
     }
 
     function stopCounter() {
-        clearInterval(intervalID);
+        for (let i = 0; i < intervalID.length; i++) {
+            clearInterval(intervalID[i]);
+        }
     }
 </script>
 </body>
