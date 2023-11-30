@@ -1,0 +1,92 @@
+.calculator {
+    border-radius: 10px;
+    background-color: #7c77b9;
+    padding: 20px;
+    width: 300px; /* Adjust width as needed */
+    color: white;
+}
+
+.display {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #302f4e;
+    border-radius: 5px;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4c4b63;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button.operator {
+    background-color: #6d5dfc;
+}
+
+button.del {
+    background-color: #ff5f5f;
+}
+
+button.equals {
+    grid-column: span 1;
+}
+
+/* Additional styling for hover effects, active state etc. */
+button:hover {
+    opacity: 0.8;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+.calculator-display {
+    display: flex;
+    justify-content: space-between; /* Elemente horizontal verteilen */
+    align-items: center; /* Elemente vertikal zentrieren */
+    background-color: #302f4e; /* Dunkler Hintergrund */
+    border-radius: 10px; /* Abgerundete Ecken */
+    padding: 10px; /* Etwas Platz im Inneren */
+    color: white; /* Weiße Schrift */
+    margin: 10px; /* Außenabstand */
+}
+
+.calculation,
+.result {
+    flex-grow: 1; /* Erlaubt den Elementen, den verfügbaren Raum auszunutzen */
+}
+
+.delete-btn {
+    margin-left: 10px; /* Abstand zwischen Text und Button */
+    background-color: #6d5dfc; /* Violetter Hintergrund */
+    color: white; /* Weiße Schrift */
+    border: none; /* Keine Bordüre */
+    border-radius: 5px; /* Abgerundete Ecken für den Button */
+    padding: 10px 20px; /* Innenabstand */
+    cursor: pointer; /* Mauszeiger als Zeiger */
+}
+
+.delete-btn:hover {
+    background-color: #5c4ecc; /* Dunklerer Violettton beim Hover */
+}
+
+/* Zusätzliche Stile, um Textgröße, Schriftart usw. zu ändern, falls nötig */
+.calculation {
+    font-size: 0.8em; /* Kleinere Schrift für die Berechnung */
+}
+
+.result {
+    font-size: 2em; /* Größere Schrift für das Ergebnis */
+    text-align: right; /* Ergebnis rechtsbündig ausrichten */
+}
