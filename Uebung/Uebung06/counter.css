@@ -1,0 +1,27 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    margin: 10px;
+    background-color: lightgray;
+    height: 100px;
+    aspect-ratio: 1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#counter{
+    margin: auto;
+}
+#btnReset{
+    box-shadow: black 5px 5px 5px;
+}

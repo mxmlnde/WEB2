@@ -1,0 +1,129 @@
+:root {
+    --bgCol1: mediumpurple;
+    --bgColBtn1: white;
+    --bgColBtnBorder1: purple;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(0.375turn, lightgreen, orange);
+    font-family: Arial;
+}
+
+.container {
+}
+
+.calculator {
+    padding: 10px;
+    width: 40vw;
+    background: linear-gradient(0.375turn, lightgreen, orange);
+    box-shadow: black 5px 5px 5px;
+    border-radius: 10px;
+}
+
+.display {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 10px;
+    height: 60px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: white;
+    gap: 0.5rem;
+    grid-template-areas:
+                "calculation calculation calculation del"
+                "result result result del";
+}
+
+.calculation,
+.result {
+    flex-grow: 1; /* Erlaubt den Elementen, den verfügbaren Raum auszunutzen */
+}
+
+.cal-buttons {
+    display: grid;
+    gap: 0.25rem;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+                "btn-cal btn-cal btn-cal operator"
+                "btn-cal btn-cal btn-cal operator"
+                "btn-cal btn-cal btn-cal operator"
+                "btn-cal btn-cal btn-cal operator";
+}
+
+.btn-cal {
+    background-color: var(--bgColBtn1);
+    border-radius: 5px;
+    cursor: grab;
+    border: none;
+    height: 30px;
+    grid-column: span 2;
+}
+
+.btn-cal:hover {
+    border: solid 2px darkseagreen;
+}
+
+.btn-cal:active {
+    background-color: #f3f3f3;
+    transform: scale(0.95);
+}
+
+button.operator {
+    grid-column: span 1;
+}
+
+button.del {
+    background-color: blue;
+    color: white;
+    border: none;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    font-weight: bold;
+}
+
+.del:hover {
+    border: none;
+    background-color: darkred;
+    color: black;
+}
+
+.del:active {
+    border: none;
+    background-color: coral;
+    color: white;
+}
+
+.calculation {
+    color: grey;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: right;
+    font-size: small;
+}
+
+.result {
+    color: white;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: right;
+    font-size: x-large;
+}

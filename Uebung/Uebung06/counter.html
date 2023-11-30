@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse-Move Counter</title>
+    <link rel="stylesheet" href="counter.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <span id="counter">0</span>
+    </div>
+    <button id="btnReset" onclick="reset_btn()">Reset</button>
+</div>
+</body>
+<script type="module">
+    import evaluateValue from "./externes_modul.js";
+
+    let mouse_counter = 0;
+    $(".box").on("mousemove", function () {
+        //alert(mouse_counter)
+        mouse_counter++;
+        evaluateValue(mouse_counter);
+        $("#counter").text(parseInt(mouse_counter));
+
+    });
+
+    function reset_btn() {
+        mouse_counter = 0;
+        $("#counter").text(parseInt(mouse_counter)); // Gegen Eventlistern austauschen
+    }
+
+    $("btnReset").click(function () {
+        mouse_counter = 0;
+        $("#counter").text(parseInt(mouse_counter));
+    })
+
+    window.reset_btn = reset_btn;
+</script>
+</html>
