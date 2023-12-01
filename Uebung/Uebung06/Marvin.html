@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background-image: linear-gradient(120deg, var(--sitecolor1) 10%, var(--sitecolor2) 70%);
+
+        }
+
+        .a {
+            --sitecolor1: rgb(81, 140, 207);
+            --sitecolor2: rgb(38, 68, 102);
+            --buttoncolor: rgba(62, 178, 62, 0.7);
+            --buttonborder: rgb(28, 86, 28);
+
+        }
+
+        .b {
+            --sitecolor1: rgb(81, 207, 98);
+            --sitecolor2: rgb(43, 102, 38);
+            --buttoncolor: rgba(161, 178, 62, 0.7);
+            --buttonborder: rgb(86, 70, 28);
+        }
+
+        #calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+
+
+            box-shadow: 5px 5px 20px;
+            width: 4;
+            height: 500px;
+            padding: 10px;
+            border-radius: 10px;
+
+            background-image: linear-gradient(120deg, var(--sitecolor1) 10%, var(--sitecolor2) 70%);
+
+        }
+
+        #display {
+            grid-column: span 4;
+            background-color: rgb(177, 177, 177);
+            border-radius: 0.5em;
+            padding: 0.5em;
+            text-align: end;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        #calcDisplay {
+            height: 2.2em;
+        }
+
+        #input {
+            background-color: transparent;
+            border: none;
+            font-size: 2rem;
+            text-align: inherit;
+        }
+
+
+        .knopf {
+            background-color: var(--buttoncolor);
+            border-color: transparent;
+
+            font-size: 1.2rem;
+            padding: 1em 2em;
+            border-radius: 0.25em;
+            position: relative;
+
+        }
+
+
+        .knopf:hover {
+            border-color: var(--buttonborder);
+
+
+        }
+
+        .switch {
+            text-align: center;
+            position: fixed;
+            bottom: 1em;
+            right: 1em;
+        }
+    </style>
+</head>
+
+
+<body id="page" class="a ">
+
+<div>
+    <div id="calculator" class="co">
+        <div id="display">
+            <div id="calced" style="height: 1em; color: rgb(114, 112, 112);"></div>
+            <input type="text" id="input">
+            <button class="knopf op">DEL</button>
+
+        </div>
+        <button class="knopf op">9</button>
+        <button class="knopf op">8</button>
+        <button class="knopf op">7</button>
+        <button class="knopf op">/</button>
+
+        <button class="knopf op">6</button>
+        <button class="knopf op">5</button>
+        <button class="knopf op">4</button>
+        <button class="knopf op">-</button>
+
+        <button class="knopf op">3</button>
+        <button class="knopf op">2</button>
+        <button class="knopf op">1</button>
+        <button class="knopf op">+</button>
+
+        <button class="knopf op">.</button>
+        <button class="knopf op">0</button>
+        <button class="knopf op">=</button>
+        <button class="knopf op">*</button>
+
+
+    </div>
+    <button id="switchcolor" class="knopf switch"> ☀</button>
+</div>
+</body>
+<script type="module">
+    $(document).ready(function () {
+        // ColorChange
+        $("#switchcolor").click(function () {
+            $("#page").toggleClass("b");
+        });
+
+        // Calculator
+        $(".op").click(function () {
+            let buttonPressed = $(this).html();
+            let calcDisplay = $("#input").val();
+
+            if (buttonPressed == "=") {
+                $("#input").val(eval(calcDisplay));
+                $("#calced").html(calcDisplay);
+            } else if (buttonPressed == "DEL") {
+                $("#input").val("");
+                $("#calced").html(" ");
+            } else {
+                $("#input").val(calcDisplay + buttonPressed);
+            }
+        });
+    });
+</script>
+
+</html>

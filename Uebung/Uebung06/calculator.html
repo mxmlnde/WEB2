@@ -11,7 +11,8 @@
         <div class="display">
             <div class="calculation">1+1</div>
             <div class="result">2</div>
-            <button class="btn-cal del">DEL</button>
+            <button class="del">DEL</button>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         </div>
         <div class="cal-buttons">
             <button class="btn-cal">1</button>
@@ -38,4 +39,11 @@
     <!--    <button class="btn-cal"><span class="bi bi-sun"></span></button>-->
 </div>
 </body>
+<script>
+    $(".btn-cal").on("click", function () {
+        let btnValue = $(this).html();
+        $(".result").val(btnValue);
+        console.log(btnValue);
+    });
+</script>
 </html>

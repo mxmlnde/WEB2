@@ -85,6 +85,14 @@ button.operator {
 }
 
 button.del {
+    background-color: var(--bgColBtn1);
+    border-radius: 5px;
+    cursor: grab;
+    border: none;
+    height: 30px;
+    grid-column: span 2;
+
+
     background-color: blue;
     color: white;
     border: none;
