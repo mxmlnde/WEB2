@@ -1,7 +1,27 @@
-:root {
-    --bgCol1: mediumpurple;
-    --bgColBtn1: white;
-    --bgColBtnBorder1: purple;
+.cal-green {
+    --gradientColor1: lightgreen;
+    --gradientColor2: orange;
+    --calBtnHover: darkseagreen;
+    --delColor: blue;
+    --delFont: white;
+    --delHover: darkred;
+    --delFontColor: black;
+    --delAcive: coral;
+    --nextCalColor: blue;
+    --changeFontColor: white;
+}
+
+.cal-blue {
+    --gradientColor1: #f6bf98;
+    --gradientColor2: blue;
+    --calBtnHover: #d55cf8;
+    --delColor: #670067;
+    --delFont: white;
+    --delHover: darkred;
+    --delFontColor: black;
+    --delAcive: coral;
+    --nextCalColor: orange;
+    --changeFontColor: black;
 }
 
 body {
@@ -12,19 +32,18 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(0.375turn, lightgreen, orange);
+    background: linear-gradient(0.375turn, var(--gradientColor1), var(--gradientColor2));
     font-family: Arial;
-}
-
-.container {
 }
 
 .calculator {
     padding: 10px;
     width: 40vw;
-    background: linear-gradient(0.375turn, lightgreen, orange);
+    background: linear-gradient(0.375turn, var(--gradientColor1), var(--gradientColor2));
     box-shadow: black 5px 5px 5px;
     border-radius: 10px;
+    min-width: 150px;
+    max-width: 300px;
 }
 
 .display {
@@ -47,7 +66,7 @@ body {
 
 .calculation,
 .result {
-    flex-grow: 1; /* Erlaubt den Elementen, den verfügbaren Raum auszunutzen */
+    flex-grow: 1;
 }
 
 .cal-buttons {
@@ -63,7 +82,7 @@ body {
 }
 
 .btn-cal {
-    background-color: var(--bgColBtn1);
+    background-color: white;
     border-radius: 5px;
     cursor: grab;
     border: none;
@@ -72,7 +91,7 @@ body {
 }
 
 .btn-cal:hover {
-    border: solid 2px darkseagreen;
+    border: solid 3px var(--calBtnHover);
 }
 
 .btn-cal:active {
@@ -85,16 +104,13 @@ button.operator {
 }
 
 button.del {
-    background-color: var(--bgColBtn1);
     border-radius: 5px;
     cursor: grab;
     border: none;
     height: 30px;
     grid-column: span 2;
-
-
-    background-color: blue;
-    color: white;
+    background-color: var(--delColor);
+    color: var(--delFont);
     border: none;
     grid-column-start: 4;
     grid-column-end: 5;
@@ -106,13 +122,13 @@ button.del {
 
 .del:hover {
     border: none;
-    background-color: darkred;
+    background-color: var(--delHover);
     color: black;
 }
 
 .del:active {
     border: none;
-    background-color: coral;
+    background-color: var(--delAcive);
     color: white;
 }
 
@@ -134,4 +150,27 @@ button.del {
     grid-row-end: 3;
     text-align: right;
     font-size: x-large;
+}
+
+.change {
+    background-color: white;
+    border-radius: 5px;
+    cursor: grab;
+    border: none;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.5;
+    height: 20px;
+    text-align: center;
+}
+
+.change:hover {
+    background-color: var(--nextCalColor);
+    color: var(--changeFontColor);
+    opacity: 1;
+}
+
+.change:active {
+    transform: scale(0.95);
 }

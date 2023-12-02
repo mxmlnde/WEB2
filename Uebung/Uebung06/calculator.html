@@ -3,47 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <title>Taschenrechner</title>
-    <link rel="stylesheet" href="calculator.css">
+    <!--    <link rel="stylesheet" href="calculator.css">-->
+    <style>
+        .cal-green {
+            --gradientColor1: lightgreen;
+            --gradientColor2: orange;
+            --calBtnHover: darkseagreen;
+            --delColor: blue;
+            --delFont: white;
+            --delHover: darkred;
+            --delFontColor: black;
+            --delAcive: coral;
+            --nextCalColor: blue;
+            --changeFontColor: white;
+        }
+
+        .cal-blue {
+            --gradientColor1: #f6bf98;
+            --gradientColor2: blue;
+            --calBtnHover: #d55cf8;
+            --delColor: #670067;
+            --delFont: white;
+            --delHover: darkred;
+            --delFontColor: black;
+            --delAcive: coral;
+            --nextCalColor: orange;
+            --changeFontColor: black;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(0.375turn, var(--gradientColor1), var(--gradientColor2));
+            font-family: Arial;
+        }
+
+        .calculator {
+            padding: 10px;
+            width: 40vw;
+            background: linear-gradient(0.375turn, var(--gradientColor1), var(--gradientColor2));
+            box-shadow: black 5px 5px 5px;
+            border-radius: 10px;
+            min-width: 150px;
+            max-width: 300px;
+        }
+
+        .display {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 10px;
+            height: 60px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color: white;
+            gap: 0.5rem;
+            grid-template-areas:
+                "calculation calculation calculation del"
+                "result result result del";
+        }
+
+        .calculation,
+        .result {
+            flex-grow: 1;
+        }
+
+        .cal-buttons {
+            display: grid;
+            gap: 0.25rem;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-areas:
+                "btn-cal btn-cal btn-cal operator"
+                "btn-cal btn-cal btn-cal operator"
+                "btn-cal btn-cal btn-cal operator"
+                "btn-cal btn-cal btn-cal operator";
+        }
+
+        .btn-cal {
+            background-color: white;
+            border-radius: 5px;
+            cursor: grab;
+            border: none;
+            height: 30px;
+            grid-column: span 2;
+        }
+
+        .btn-cal:hover {
+            border: solid 3px var(--calBtnHover);
+        }
+
+        .btn-cal:active {
+            background-color: #f3f3f3;
+            transform: scale(0.95);
+        }
+
+        button.operator {
+            grid-column: span 1;
+        }
+
+        button.del {
+            border-radius: 5px;
+            cursor: grab;
+            border: none;
+            height: 30px;
+            grid-column: span 2;
+            background-color: var(--delColor);
+            color: var(--delFont);
+            border: none;
+            grid-column-start: 4;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            height: 100%;
+            font-weight: bold;
+        }
+
+        .del:hover {
+            border: none;
+            background-color: var(--delHover);
+            color: black;
+        }
+
+        .del:active {
+            border: none;
+            background-color: var(--delAcive);
+            color: white;
+        }
+
+        .calculation {
+            color: grey;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            text-align: right;
+            font-size: small;
+        }
+
+        .result {
+            color: white;
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 2;
+            grid-row-end: 3;
+            text-align: right;
+            font-size: x-large;
+        }
+
+        .change {
+            background-color: white;
+            border-radius: 5px;
+            cursor: grab;
+            border: none;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0.5;
+            height: 20px;
+            text-align: center;
+        }
+
+        .change:hover {
+            background-color: var(--nextCalColor);
+            color: var(--changeFontColor);
+            opacity: 1;
+        }
+
+        .change:active {
+            transform: scale(0.95);
+        }
+    </style>
 </head>
-<body>
+<body class="cal-green" id="cal">
 <div class="container">
     <div class="calculator">
         <div class="display">
-            <div class="calculation">1+1</div>
-            <div class="result">2</div>
+            <div class="calculation"></div>
+            <div class="result"></div>
             <button class="del">DEL</button>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         </div>
         <div class="cal-buttons">
-            <button class="btn-cal">1</button>
-            <button class="btn-cal">2</button>
-            <button class="btn-cal">3</button>
+            <button class="btn-cal number">1</button>
+            <button class="btn-cal number">2</button>
+            <button class="btn-cal number">3</button>
             <button class="btn-cal operator">/</button>
 
-            <button class="btn-cal">4</button>
-            <button class="btn-cal">5</button>
-            <button class="btn-cal">6</button>
+            <button class="btn-cal number">4</button>
+            <button class="btn-cal number">5</button>
+            <button class="btn-cal number">6</button>
             <button class="btn-cal operator">-</button>
 
-            <button class="btn-cal">7</button>
-            <button class="btn-cal">8</button>
-            <button class="btn-cal">9</button>
+            <button class="btn-cal number">7</button>
+            <button class="btn-cal number">8</button>
+            <button class="btn-cal number">9</button>
             <button class="btn-cal operator">+</button>
 
-            <button class="btn-cal">.</button>
-            <button class="btn-cal">0</button>
-            <button class="btn-cal">=</button>
+            <button class="btn-cal number">.</button>
+            <button class="btn-cal number">0</button>
+            <button class="btn-cal enter">=</button>
             <button class="btn-cal operator">*</button>
         </div>
     </div>
-    <!--    <button class="btn-cal"><span class="bi bi-sun"></span></button>-->
 </div>
+<button class="change"><span>Sonne</span></button>
 </body>
 <script>
-    $(".btn-cal").on("click", function () {
+    $(".number, .operator").on("click", function () {
         let btnValue = $(this).html();
-        $(".result").val(btnValue);
-        console.log(btnValue);
+        $(".result").append(btnValue);
+    });
+
+    $(".enter").on("click", function () {
+        $(".calculation").html($(".result").html());
+        let resultFloat = eval($(".result").html())
+        $(".result").html(parseFloat(resultFloat.toFixed(4)));
+    });
+
+    $(".del").on("click", function () {
+        $(".calculation").html("");
+        $(".result").html("");
+    });
+
+    $(".change").on("click", function () {
+        console.log("Ausgelöst")
+        $("body").toggleClass("cal-blue");
+    })
+
+    //Tasteneingabe
+    document.addEventListener('keydown', function (event) {
+        const validCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '.'];
+        if (validCharacters.includes(event.key)) {
+            console.log(event.key);
+            $(".result").append(event.key);
+        } else if (event.key === 'Enter' || event.key === '=') {
+            $(".calculation").html($(".result").html());
+            let resultFloat = eval($(".result").html())
+            $(".result").html(parseFloat(resultFloat.toFixed(4)));
+        } else if (event.key === 'Backspace') {
+            console.log(event.key);
+            let calString = $(".result").html();
+            calString = calString.slice(0, -1);
+            $(".result").html(calString);
+        }
     });
 </script>
 </html>
