@@ -1,11 +1,11 @@
 import React from "react";
-import Counter from "./components/counter";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import MexicanRestaurantPage from "./MexicanRestaurantPage/MexicanRestaurantPage";
+import AllFoodItemsPage from "./MexicanRestaurantPage/AllFoodItemsPage";
 
 const App = () => {
     return (
-        <div>
-            <Counter></Counter>
-        </div>
+        <MexicanRestaurantPage></MexicanRestaurantPage>
     );
 }
 
